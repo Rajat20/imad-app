@@ -7,4 +7,4 @@ console.log('Loaded!');
 var img = document.getElementBYId('madi');
 img.onclick= function(){
     img.style.marginLeft='100px';
-}
+};
