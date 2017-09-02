@@ -39,7 +39,7 @@ app.get('/ui/main.js', function (req, res) {
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
-var pool =new pool(config);
+var pool = new pool(config);
 app.get('/test-ab',function(req,rs)
 {//make a select request
 //return a responce with the result
