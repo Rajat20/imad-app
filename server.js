@@ -5,7 +5,7 @@ var pool=require('pg').pool;
 var config={
     user:'rajat205130',
     database:'rajat205130',
-    host:'db.io.hausra.app.io',
+    host:'db.imad.hausra-app.io',
     port:'5432', 
     password: process.env.DB_rajat
 };
