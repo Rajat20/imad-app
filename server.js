@@ -1,7 +1,14 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-
+var pool=require('pg').pool;
+var config={
+    user:'rajat205130',
+    database:'rajat205130',
+    host:'db.io.hausra.app.io',
+    port:'5432', 
+    password: process.env.DB_rajat
+};
 var app = express();
 app.use(morgan('combined'));
 
@@ -32,7 +39,18 @@ app.get('/ui/main.js', function (req, res) {
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
-
+var pool =new pool(config);
+app.get('/test-ab',function(req,rs)
+{//make a select request
+//return a responce with the result
+pool.query('SELECT *FROM sudent1', function(err,result){
+    if(err){
+        res.status(500).send(err.toString());
+    }else{
+        res.send(JSON.stringify(result));
+    }
+});
+});
 
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
